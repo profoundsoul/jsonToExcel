@@ -4,10 +4,16 @@
 
 > ## API
 
-+ JSONTOEXCEL.exportXLS(dataSource:Array\<any\>, columns:Array<{title:string,dataIndex?:string,computed?:function}>,fileName:string)
++ JSONTOEXCEL.exportFile(dataSource:Array\<any\>, fileName:string, columns:Array<{title:string,dataIndex?:string,computed?:function}>)
 
-+ JSONTOEXCEL.exportCSV(dataSource:Array\<any\>, columns:Array<{dataIndex?:string,computed?:function}>,fileName:string)
+> ## function 
 
++ 支持cvs/xls/xlsx三种格式
++ 自动根据文件名称中后缀识别导出格式
++ 支持自定义列头，columns为数组
+    + title **必填** 为列头展示的名称
+    + dataIndex **可选** 字段名称
+    + computed **可选** 计算属性函数 
 
 > ## example
 ```javascript
@@ -37,13 +43,22 @@
         }
       }]
 
-  JSONTOEXCEL.exportXLS(dataSource, columns, 'test.xls')
-
-  JSONTOEXCEL.exportCSV(dataSource, columns, 'test.csv')
+  JSONEXPORT.exportFile(dataSource, 'test.xls', columns)
+  
+  // columns 可以选填
+  // 不填时，默认将dataSource的第一行数据key值作为表头
+  JSONEXPORT.exportFile(dataSource, 'test.xlsx')
+  
+  JSONEXPORT.exportFile(dataSource, 'test.csv', columns)
+  
 ```
 
+
+
 > ## change log
+
 
 + v 0.1.0
   + feature 支持计算属性 computed；
   + update api优化；
+  

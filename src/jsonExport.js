@@ -6,7 +6,7 @@
  */
 (function (global) {
     'use strict'
-    var JSONTOEXCEL = (function () {
+    var JSONEXPORT = (function () {
 
         var defaultFileSuffix = 'xls'
 
@@ -183,14 +183,14 @@
     }())
     if (typeof define === 'function' && define.amd) {
         define(function () {
-            return JSONTOEXCEL
+            return JSONEXPORT
         })
     } else if (typeof exports !== 'undefined') {
         if (typeof module !== 'undefined' && module.exports) {
-            exports = module.exports = JSONTOEXCEL
+            exports = module.exports = JSONEXPORT
         }
-        exports.JSONTOEXCEL = JSONTOEXCEL
+        exports.JSONEXPORT = JSONEXPORT
     } else {
-        global.JSONTOEXCEL = JSONTOEXCEL
+        global.JSONEXPORT = JSONEXPORT
     }
 })(this)

@@ -2,56 +2,60 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>JSONTOEXCEL</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EXPORTAPI</title>
 </head>
 
 <body>
-  <button id="downloadXLS">downloadXLS</button>
-  <button id="downloadXLSX">downloadXLSX</button>
-  <button id="downloadCSV">downloadCSV</button>
-  <!--<script src="../dist/jsonToExcel.min.js"></script>-->
-  <script src="../src/jsonToExcel.js"></script>
-  <script>
+<button id="downloadXLS">downloadXLS</button>
+<button id="downloadXLSX">downloadXLSX</button>
+<button id="downloadCSV">downloadCSV</button>
+<script src="../dist/jsonExport.min.js"></script>
+<script>
     var downloadXLS = document.querySelector('#downloadXLS'),
-       downloadXLSX = document.querySelector('#downloadXLSX'),
+      downloadXLSX = document.querySelector('#downloadXLSX'),
       downloadCSV = document.querySelector('#downloadCSV'),
       dataSource = [{
-        name: '胡彦斌',
-        age: 32,
-        address: '西湖区湖底公园1号'
+          name: '胡彦斌',
+          age: 32,
+          address: '西湖区湖底公园1号'
       }, {
-        name: '胡彦祖',
-        age: 42,
-        address: '西湖区湖底公园1号'
-      }],
+          name: '胡彦祖',
+          age: 42,
+          address: '西湖区湖底公园1号'
+      }]
 
-      columns = columns = [{
+    var columns = [{
         title: '姓名',
         dataIndex: 'name'
-      }, {
+    }, {
         title: '年龄',
         dataIndex: 'age',
-      }, {
+    }, {
         title: '住址',
         dataIndex: 'address'
-      }, {
+    }, {
         title: '出生年份',
         computed: function (item) {
-          return 2017 - item.age
+            return 2017 - item.age
         }
-      }]
+    }]
+
     downloadXLS.addEventListener('click', function () {
-      JSONTOEXCEL.exportFile(dataSource, 'test.xls', columns)
+        JSONEXPORT.exportFile(dataSource, 'test.xls', columns)
     })
+
+    // columns 可以选填
+    // 不填时，默认将dataSource的第一行数据key值作为表头
     downloadXLSX.addEventListener('click', function () {
-      JSONTOEXCEL.exportFile(dataSource, 'test.xlsx', columns)
+        JSONEXPORT.exportFile(dataSource, 'test.xlsx')
     })
+
     downloadCSV.addEventListener('click', function () {
-      JSONTOEXCEL.exportFile(dataSource, 'test.csv', columns)
+        JSONEXPORT.exportFile(dataSource, 'test.csv', columns)
     })
-  </script>
+</script>
 </body>
 </html>

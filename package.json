@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/sangruo/jsonToExcel/issues"
   },
-  "homepage": "https://github.com/sangruo/jsonToExcel#readme"
+  "homepage": "https://github.com/sangruo/jsonToExcel#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.3",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^3.0.0"
+  }
 }
