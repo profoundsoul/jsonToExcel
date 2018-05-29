@@ -1,10 +1,10 @@
-# JSONTOEXCEL
+# JSONEXPORT
 > ## 使用说明
 + 用于浏览器端将数组对象格式数据导出xls/xlsx/csv 格式文件；
 
 > ## API
 
-+ JSONTOEXCEL.exportFile(dataSource:Array\<any\>, fileName:string, columns:Array<{title:string,dataIndex?:string,computed?:function}>)
++ JSONEXPORT.exportFile(dataSource:Array\<any\>, fileName:string, columns:Array<{title:string,dataIndex?:string,computed?:function}>)
 
 > ## function 
 
