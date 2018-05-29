@@ -10,10 +10,13 @@
 
 <body>
   <button id="downloadXLS">downloadXLS</button>
+  <button id="downloadXLSX">downloadXLSX</button>
   <button id="downloadCSV">downloadCSV</button>
-  <script src="../dist/jsonToExcel.min.js"></script>
+  <!--<script src="../dist/jsonToExcel.min.js"></script>-->
+  <script src="../src/jsonToExcel.js"></script>
   <script>
     var downloadXLS = document.querySelector('#downloadXLS'),
+       downloadXLSX = document.querySelector('#downloadXLSX'),
       downloadCSV = document.querySelector('#downloadCSV'),
       dataSource = [{
         name: '胡彦斌',
@@ -41,10 +44,13 @@
         }
       }]
     downloadXLS.addEventListener('click', function () {
-      JSONTOEXCEL.exportXLS(dataSource, columns, 'test.xls')
+      JSONTOEXCEL.exportFile(dataSource, 'test.xls', columns)
+    })
+    downloadXLSX.addEventListener('click', function () {
+      JSONTOEXCEL.exportFile(dataSource, 'test.xlsx', columns)
     })
     downloadCSV.addEventListener('click', function () {
-      JSONTOEXCEL.exportCSV(dataSource, columns, 'test.csv')
+      JSONTOEXCEL.exportFile(dataSource, 'test.csv', columns)
     })
   </script>
 </body>

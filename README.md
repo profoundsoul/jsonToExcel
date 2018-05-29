@@ -1,6 +1,6 @@
 # JSONTOEXCEL
 > ## 使用说明
-+ 用于浏览器端将json格式数据转换为 伪xls/csv 格式文件导出；
++ 用于浏览器端将数组对象格式数据导出xls/xlsx/csv 格式文件；
 
 > ## API
 
